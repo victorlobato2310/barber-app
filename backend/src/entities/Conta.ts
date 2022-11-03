@@ -6,7 +6,7 @@ export class Conta {
     @PrimaryGeneratedColumn('uuid')
     id_conta: string;
 
-    @Column()
+    @Column({ unique: true})
     usuario: string;
 
     @Column()
