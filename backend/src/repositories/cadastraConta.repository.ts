@@ -42,7 +42,7 @@ export class CadastraContaRepository implements ICadastraContaRepository {
     
     async getContaComVinculo(usuario: string): Promise<any> {
         try {
-            const repository = await AppDataSource.getRepository(Cliente);
+            const repository = AppDataSource.getRepository(Cliente);
             
             return await repository.createQueryBuilder('cliente').where('usuario = :usuario', {
                 usuario: usuario
