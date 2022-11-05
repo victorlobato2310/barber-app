@@ -24,16 +24,8 @@ export class CadastraClienteFacade {
                     throw new AppError({ message: 'Error no servidor', statusCode: 500 });
                 }
 
-                let cliente = {
-                    id: cadastrarClienteServiceResponse.id,
-                    contaId: cadastrarClienteServiceResponse.conta.id,
-                    nome: cadastrarClienteServiceResponse.nome,
-                    email: cadastrarClienteServiceResponse.email
-                }
-
                 return resolve({
-                    message: 'Cliente cadastrado com sucesso.',
-                    usuario: cliente
+                    message: 'Cliente cadastrado com sucesso.'
                 });
 
             } catch (error) {
