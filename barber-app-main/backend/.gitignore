@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
+package-lock.json
+teste.vuerd.json
+db_salao.json
+dist
+docker/pgdata
