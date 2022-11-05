@@ -1,5 +1,5 @@
 export interface IContaRequest {
-    id_conta?: string;
+    id?: string;
     usuario: string;
     senha: string;
 }
