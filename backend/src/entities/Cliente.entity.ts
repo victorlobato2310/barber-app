@@ -5,7 +5,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "ty
 export default class Cliente {
 
     @PrimaryGeneratedColumn('uuid')
-    id_cliente: string;
+    id: string;
 
     @Column()
     nome: string;
@@ -13,8 +13,8 @@ export default class Cliente {
     @Column({ unique: true})
     email: string;
 
-    @OneToOne(() => Conta)
-    @JoinColumn({ name: 'fk_conta', referencedColumnName: 'id_conta'})
+    @OneToOne(() => Conta, conta => conta.cliente, { onDelete: 'CASCADE' })
+    @JoinColumn()
     conta: Conta;
 
 }
