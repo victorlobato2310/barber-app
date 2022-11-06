@@ -1,11 +1,12 @@
 import AppError from "../errors/AppError";
+import { IConta } from "../interfaces/IConta";
 import { BuscarUsuarioRepository } from "../repositories/buscarUsuario.repository";
 
 export class BuscarUsuarioService {
 
     constructor(){}
 
-    async execute(usuario: string): Promise<any> {
+    async execute(usuario: string): Promise<IConta> {
         try {
 
             let repository = new BuscarUsuarioRepository();
