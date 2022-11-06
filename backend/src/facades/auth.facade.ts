@@ -1,6 +1,6 @@
 import AppError from "../errors/AppError";
 import * as bcrypt from "bcryptjs";
-import { BuscarUsuarioRepository } from '../repositories/buscarUsuario.repository';
+import { BuscarUsuarioService } from "../services/buscarUsuario.service";
 
 export class AuthFacade {
 
@@ -8,7 +8,7 @@ export class AuthFacade {
         return new Promise(async (resolve, reject) => {
             try {
 
-                let buscarUsuarioService = new BuscarUsuarioRepository();
+                let buscarUsuarioService = new BuscarUsuarioService();
 
                 let usuarioResponse = await buscarUsuarioService.execute(usuario);
 
