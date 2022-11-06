@@ -1,5 +1,5 @@
+import { IConta } from './../interfaces/IConta';
 import { AppDataSource } from "../data-source";
-import Cliente from "../entities/Cliente.entity";
 import { Conta } from "../entities/Conta.entity";
 import AppError from "../errors/AppError";
 import { IContaRequest } from "../interfaces/IContaRequest";
@@ -9,7 +9,7 @@ export class CadastraContaRepository implements ICadastraContaRepository {
 
     constructor(){}
 
-    async save(conta: IContaRequest): Promise<any> {
+    async save(conta: IContaRequest): Promise<IConta> {
         try {
             const repository = AppDataSource.getRepository(Conta);
 
@@ -19,7 +19,7 @@ export class CadastraContaRepository implements ICadastraContaRepository {
         }
     }
 
-    async getByUsuario(usuario: string): Promise<any> {
+    async getByUsuario(usuario: string): Promise<IConta | any> {
         try {
             const repository = AppDataSource.getRepository(Conta);
             
@@ -40,16 +40,4 @@ export class CadastraContaRepository implements ICadastraContaRepository {
         }
     }
     
-    async getContaComVinculo(usuario: string): Promise<any> {
-        try {
-            const repository = AppDataSource.getRepository(Cliente);
-            
-            return await repository.createQueryBuilder('cliente').where('usuario = :usuario', {
-                usuario: usuario
-            }).getOne();
-
-        } catch (error) {
-            throw new AppError(error);
-        }
-    }
 }
