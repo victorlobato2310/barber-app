@@ -1,11 +1,12 @@
 import AppError from "../errors/AppError";
+import { IBuscarEmailOuUsuarioResponse } from "../interfaces/IBuscarEmailOuUsuarioResponse";
 import { BuscarEmailOuUsuarioRepository } from "../repositories/buscarEmailOuUsuario.repository";
 
 export class BuscarEmailOuUsuarioService {
 
     constructor(){}
 
-    async execute(email: string = "", usuario: string = ""): Promise<any> {
+    async execute(email: string = "", usuario: string = ""): Promise<IBuscarEmailOuUsuarioResponse> {
         try {
             
             let repository = new BuscarEmailOuUsuarioRepository();
