@@ -1,6 +1,7 @@
 import AppError from "../errors/AppError";
 import { CadastrarContaService } from "../services/cadastrarConta.service";
 import { CadastrarClienteService } from "../services/cadastarCliente.service";
+import * as bcrypt from "bcryptjs";
 
 export class CadastraClienteFacade {
 
@@ -12,7 +13,9 @@ export class CadastraClienteFacade {
 
                 let cadastrarClienteService = new CadastrarClienteService();
 
-                let cadastrarContaServiceResponse = await cadastrarContaService.execute(usuario, senha);
+                const senhaHash = await bcrypt.hash(senha, 10);
+                
+                let cadastrarContaServiceResponse = await cadastrarContaService.execute(usuario, senhaHash);
                 
                 if(!cadastrarContaServiceResponse) {
                     throw new AppError({ message: 'Error no servidor', statusCode: 500 });
