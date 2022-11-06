@@ -2,10 +2,11 @@ import AppError from "../errors/AppError";
 import { CadastrarContaService } from "../services/cadastrarConta.service";
 import { CadastrarClienteService } from "../services/cadastarCliente.service";
 import * as bcrypt from "bcryptjs";
+import { ICadastraClienteResponse } from "../interfaces/ICadastraClienteResponse";
 
 export class CadastraClienteFacade {
 
-    public static execute(nome: string, email: string, usuario: string, senha: string): Promise<any>{
+    public static execute(nome: string, email: string, usuario: string, senha: string): Promise<ICadastraClienteResponse>{
         return new Promise(async (resolve, reject) => {
             try {
 
