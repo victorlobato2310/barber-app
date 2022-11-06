@@ -12,6 +12,7 @@
       "prod": "npm run build && npm run start"
    },
    "devDependencies": {
+      "@types/bcryptjs": "^2.4.2",
       "@types/cors": "^2.8.12",
       "@types/express": "^4.17.13",
       "@types/node": "^18.0.1",
@@ -21,6 +22,7 @@
    },
    "dependencies": {
       "@types/express-validator": "^3.0.0",
+      "bcryptjs": "^2.4.3",
       "cors": "^2.8.5",
       "dotenv": "^16.0.1",
       "express": "^4.18.1",
