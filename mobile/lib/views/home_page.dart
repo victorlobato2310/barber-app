@@ -1,23 +1,48 @@
-import 'package:barber_app/model/account_model.dart';
-import 'package:barber_app/services/register_user.dart';
 import 'package:flutter/material.dart';
+import 'components/home_page_components/register_user_button_component.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController email = TextEditingController();
+    TextEditingController name = TextEditingController();
+    TextEditingController password = TextEditingController();
+    TextEditingController username = TextEditingController();
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ElevatedButton(
-            onPressed: () {
-              RegisterUser().call(AccountModel(email: 'email', name: 'name', password: 'password', username: 'username'));
-            },
-            child: const Text('data'),
+          const Text('Cadastro'),
+          Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: email,
+                  decoration: const InputDecoration(hintText: 'E-mail'),
+                ),
+                TextFormField(
+                    controller: name,
+                    decoration:
+                        const InputDecoration(hintText: 'Nome Completo')),
+                TextFormField(
+                  controller: password,
+                  decoration: const InputDecoration(
+                    hintText: 'Senha',
+                  ),
+                ),
+                TextFormField(
+                    controller: username,
+                    decoration:
+                        const InputDecoration(hintText: 'Nome de Usuário')),
+              ],
+            ),
           ),
+          RegisterUserButtonComponent(
+              password: password, email: email, name: name, username: username),
         ],
       ),
     );
