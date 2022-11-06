@@ -13,11 +13,10 @@ class RegisterUser {
       "usuario": accountModel.username,
       "senha": accountModel.password
     });
-
-    return handleResponse(response)!;
+    return handleResponse(response);
   }
 
-  Map? handleResponse(Response response) {
+  Map handleResponse(Response response) {
     if (response.statusCode == 200) {
       return response.data;
     } else if (response.statusCode == 400) {
