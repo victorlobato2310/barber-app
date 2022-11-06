@@ -1,3 +1,4 @@
+import 'package:barber_app/model/account_model.dart';
 import 'package:barber_app/services/register_user.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              RegisterUser().call();
+              RegisterUser().call(AccountModel(email: 'email', name: 'name', password: 'password', username: 'username'));
             },
             child: const Text('data'),
           ),
