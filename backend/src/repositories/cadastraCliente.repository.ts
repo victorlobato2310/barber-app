@@ -3,12 +3,14 @@ import { IClienteRequest } from './../interfaces/IClienteRequest';
 import { AppDataSource } from "../data-source";
 import Cliente from "../entities/Cliente.entity";
 import AppError from "../errors/AppError";
+import { ICliente } from '../interfaces/ICliente';
+import { IConta } from '../interfaces/IConta';
 
 export class CadastraClienteRepository implements ICadastraClienteRepository {
 
     constructor(){}
 
-    async save(cliente: IClienteRequest): Promise<any> {
+    async save(cliente: IClienteRequest): Promise<ICliente> {
         try {
             const repository =  AppDataSource.getRepository(Cliente);
 
@@ -18,7 +20,7 @@ export class CadastraClienteRepository implements ICadastraClienteRepository {
         }
     }
 
-    async getClienteComConta(id_conta: string): Promise<any> {
+    async getClienteComConta(id_conta: string): Promise<IConta | any> {
         try {
             const repository =  AppDataSource.getRepository(Cliente);
             
