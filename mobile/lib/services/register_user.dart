@@ -3,7 +3,7 @@ import 'package:barber_app/model/account_model.dart';
 import 'package:dio/dio.dart';
 
 class RegisterUser {
-  Future<Map> call(AccountModel accountModel) async {
+  Future<Map> register(AccountModel accountModel) async {
     var dio = Dio();
 
     var response = await dio

@@ -15,7 +15,7 @@ void main() {
     AccountModel accountModel = AccountModel(
         email: email, name: name, password: password, username: username);
 
-    var result = await registerUser.call(accountModel);
+    var result = await registerUser.register(accountModel);
     var decodeResult = DecodeSuccessUserRegister.fromJson(result);
     expect(decodeResult.message, isA<String>());
   });

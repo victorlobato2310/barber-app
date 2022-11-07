@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'components/home_page_components/register_user_button_component.dart';
+import 'components/register_page_components/register_user_button_component.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -37,7 +37,7 @@ class RegisterUserButtonComponent extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               content: Text('O nome de usuário deve ser fornecido')));
         } else {
-          RegisterUser().call(
+          RegisterUser().register(
             AccountModel(
               email: email.text,
               name: name.text,
