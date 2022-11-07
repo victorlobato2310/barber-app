@@ -25,3 +25,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => console.log(`A aplicação está rondando na porta ${port}`));
+
+export default app;

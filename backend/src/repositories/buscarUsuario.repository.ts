@@ -1,23 +1,12 @@
-import { IConta } from './../interfaces/IConta';
 import { AppDataSource } from "../data-source";
-import { Conta } from "../entities/Conta.entity";
 import AppError from "../errors/AppError";
-import { IContaRequest } from "../interfaces/IContaRequest";
-import { ICadastraContaRepository } from "./interfaces/ICadastraContaRepository";
+import { Conta } from '../entities/Conta.entity';
+import { IBuscaUsuarioRepository } from "./interfaces/IBuscaUsuarioRepository";
+import { IConta } from "../interfaces/IConta";
 
-export class CadastraContaRepository implements ICadastraContaRepository {
+export class BuscarUsuarioRepository implements IBuscaUsuarioRepository {
 
     constructor(){}
-
-    async save(conta: IContaRequest): Promise<IConta> {
-        try {
-            const repository = AppDataSource.getRepository(Conta);
-
-            return await repository.save(conta);
-        } catch (error) {
-            throw new AppError(error);
-        }
-    }
 
     async getByUsuario(usuario: string): Promise<IConta | any> {
         try {

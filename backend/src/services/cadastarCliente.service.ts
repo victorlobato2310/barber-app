@@ -1,3 +1,4 @@
+import { ICliente } from './../interfaces/ICliente';
 import AppError from "../errors/AppError";
 import { CadastraClienteRepository } from "../repositories/cadastraCliente.repository";
 
@@ -5,7 +6,7 @@ export class CadastrarClienteService {
 
     constructor(){}
 
-    async execute(conta: any, nome: string, email: string): Promise<any> {
+    async execute(conta: any, nome: string, email: string): Promise<ICliente> {
         try {
 
             let repository = new CadastraClienteRepository();
