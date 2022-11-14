@@ -1,7 +1,6 @@
 {
   "entryFile": "src/server.ts",
   "noImplicitAdditionalProperties": "throw-on-extras",
-  "controllerPathGlobs": ["src/facades/*facade.ts"],
   "spec": {
     "outputDirectory": "dist/public",
     "specVersion": 3,

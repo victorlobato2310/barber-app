@@ -1,12 +1,19 @@
 import AppError from "../errors/AppError";
 import { IBuscarEmailOuUsuarioResponse } from "../interfaces/IBuscarEmailOuUsuarioResponse";
 import { BuscarEmailOuUsuarioRepository } from "../repositories/buscarEmailOuUsuario.repository";
-
+import { Get, Route, Tags, SuccessResponse, Response, Query } from 'tsoa';
+@Route("buscaEmailOuUsuario")
+@Tags("Busca Email ou Usuário")
 export class BuscarEmailOuUsuarioService {
 
     constructor(){}
-
-    async execute(email: string = "", usuario: string = ""): Promise<IBuscarEmailOuUsuarioResponse> {
+    /**
+     * Responsável por fazer a checagem se já existe usuário e/ou email na aplicação. 
+     */
+    @Get()
+    @SuccessResponse("200", "OK")
+    @Response<AppError>("500", "Error no servidor.")
+    async execute(@Query() email: string = "", @Query() usuario: string = ""): Promise<IBuscarEmailOuUsuarioResponse> {
         try {
             
             let repository = new BuscarEmailOuUsuarioRepository();

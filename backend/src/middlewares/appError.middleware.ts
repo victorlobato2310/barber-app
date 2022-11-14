@@ -11,6 +11,6 @@ export function appError(error: Error, request: Request, response: Response, nex
 
     return response.status(500).json({
       status: "error",
-      message: "Internal server error",
+      message: "Error no servidor.",
     });
 }
