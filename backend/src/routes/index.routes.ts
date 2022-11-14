@@ -1,7 +1,7 @@
 import { Router } from "express";
 import authRouter from "./auth.routes";
 import buscaEmailOuUsuarioRouter from "./buscaEmailOuUsuario.routes";
-import cadastraContaRouter from "./cadastraConta.routes";
+import cadastraContaRouter from "./cadastraCliente.routes";
 
 const router = Router();
 const rotaPadrao = '/api/v1';
