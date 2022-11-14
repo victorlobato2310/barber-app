@@ -13,3 +13,6 @@ export const AppDataSource = new DataSource({
     entities: [`${__dirname}/**/entities/*.{ts,js}`],
 	migrations: [`${__dirname}/**/migrations/*.{ts,js}`],
 });
+
+
+AppDataSource.initialize().then(() => console.log("Banco de Dados inicializado")).catch(error => console.log(error));
